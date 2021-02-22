@@ -1,9 +1,11 @@
 variable "instance_type"{}
+variable "subnet_id"{}
 
 resource "aws_instance" "default" {
+  subnet_id              = var.subnet_id
   ami                    = "ami-0992fc94ca0f1415a" #Amazon Linux2
-  vpc_security_group_ids = [aws_security_group.default.id]
   instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.default.id]
   key_name               = aws_key_pair.default.id
 
   tags = {
