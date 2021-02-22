@@ -1,3 +1,4 @@
 provider.tf
 .terraform
 key.pub
+terraform*
